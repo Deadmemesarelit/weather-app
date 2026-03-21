@@ -1,4 +1,13 @@
 # weather-app
-A weather app I built, an API that can't be stolen, and a clean, sleek UI. 
-Here is the link to the app itself:
+##The app features:
+-Real-time weather data
+-Sleek, easy-to-read UI
+-a Strong, uncopyable API
+
+##Tech used: 
+-HTML, CSS, JavaScript
+-NODE.js
+-OpenWeatherMap API
+
+##A demo of the 'weather' App:
 https://weather-app-xy4k.onrender.com
