@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap');
+*{
+    font-family: "Oswald";
+    color: white;
+}
+body{
+    height: 100%;
+    background-color: rgb(75, 133, 187);
+}
+
+.weather-info{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 600px;
+    width: 30%;
+    border: solid rgb(255, 255, 255);
+    /* background-color: rgb(39, 92, 134); */
+    background: linear-gradient(120deg , rgb(31, 59, 136), 
+    rgb(50, 94, 190));
+    border-radius: 25px;
+    box-shadow: 0 0 30px darkgray;
+    animation: boxShadowChange 10s infinite;
+}
+
+@keyframes boxShadowChange {
+    0%{box-shadow: 0 0 30px darkgray;}
+    50%{box-shadow: 0 10px 10px rgb(104, 102, 102);}
+    100%{box-shadow: 0 0 30px darkgray;}
+}
+
+input:focus{
+    outline: none;
+    border-color: wheat;
+    padding: 10px;
+    
+
+}
+
+.search-bar{
+    background-color: rgb(204, 202, 202);
+    opacity: 0.8;
+    margin-top: 20px;
+    padding: 7px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: border-color 1s ease-in-out, padding 0.5s ease-in-out;
+
+}
+
+.date{
+    width: auto;
+    font-size: 1.2rem;
+    color: white;
+}
+
+#BebasNeue{
+    font-family: "Bebas Neue";
+}
+
+.temp-city-container{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+}   
+
+
+
+.wind-water-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  
+}
+
+.humidity{
+    font-size: 30px;
+}
+
+.wind{
+    font-size: 30px;
+}
+
+
+
+.next-day-container{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    width: 80%;
+    height: 30%;
+    background-color:rgb(49, 118, 173);
+
+    opacity: 0.5;
+ 
+    border-radius: 40px;
+    box-shadow: 0 0px 10px rgb(0, 0, 0);
+    transition: opacity 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+    overflow-x: scroll;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+.next-day-container:hover{
+    opacity: 0.9;
+    box-shadow: 0 0px 10px rgb(83, 83, 83);
+}
+
+.day{
+    flex-shrink: 0;
+    margin: 10px;
+    border-radius: 20px;
+    border: solid;
+    width: 100px;
+    opacity: 0.5;
+    height: 150px;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out, font-size 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.day:hover{
+    opacity: 1;
+    transform: translateY(-5px);
+    font-size: 1.03rem;
+}
+
+.weather-emoji{
+    font-size: 3rem;
+}
+
+
+.hidden{
+    display: none !important;
+}
+
+.error-404, .opening-words{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    
+}
+
