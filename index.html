@@ -17,7 +17,7 @@
             <div class="opening-words">Please Search for a city...</div>
             <div class="date" id="BebasNeue">February 26th, 2026</div>
             <div class="temp-city-container">
-                <div class="temp">26 °C</div>
+                <div class="temp"><span class="temp-value">26</span><span class="temp-unit">°C</span></div>
                 <div class="city-name">Pueblo Colorado</div>
             </div>
 
@@ -27,14 +27,18 @@
             </div>
             
             <div class="next-day-container">
-               
+                <div class="day">
+                <h5 class="next-day">${date}</h5>
+                <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="weather icon">
+                <h5 class="next-day-degree">${temp} °C</h5>
+            </div>
                 
                 
             </div>
     </div>
-
-   
-
+    <div class="toggle-degree-modes-container">
+        <button class="toggle-degree-mode" id="BebasNeue">Switch to Fahrenheit</button>
+    </div>
     
 </body>
 </html>
