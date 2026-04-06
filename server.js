@@ -17,18 +17,20 @@ app.use(express.static(path.join(__dirname)));
 
 app.get('/api/weather', async (req, res) => {
   const city = req.query.city;
+  const units = req.query.units || 'metric';
   if (!city) {
     return res.status(400).json({ error: 'city query parameter is required' });
   }
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
     city
-  )}&appid=${API_KEY}&units=metric`;
+  )}&appid=${API_KEY}&units=${units}`;
 
   try {
     const response = await fetch(url);
     const data = await response.json();
-    res.status(response.status).json(data);
+    const unitType = units === 'metric' ? 'celsius' : 'fahrenheit';
+    res.status(response.status).json({ ...data, units: unitType });
   } catch (err) {
     res.status(502).json({ error: 'failed to fetch weather data', details: err.message });
   }
@@ -36,18 +38,20 @@ app.get('/api/weather', async (req, res) => {
 
 app.get('/api/forecast', async (req, res) => {
   const city = req.query.city;
+  const units = req.query.units || 'metric';
   if (!city) {
     return res.status(400).json({ error: 'city query parameter is required' });
   }
 
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(
     city
-  )}&appid=${API_KEY}&units=metric`;
+  )}&appid=${API_KEY}&units=${units}`;
 
   try {
     const response = await fetch(url);
     const data = await response.json();
-    res.status(response.status).json(data);
+    const unitType = units === 'metric' ? 'celsius' : 'fahrenheit';
+    res.status(response.status).json({ ...data, units: unitType });
   } catch (err) {
     res.status(502).json({ error: 'failed to fetch forecast data', details: err.message });
   }
