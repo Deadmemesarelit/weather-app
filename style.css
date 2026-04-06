@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap');
 
-
 html {
     height: 100%;
     margin: 0;
@@ -10,15 +9,21 @@ html {
 
 * {
     box-sizing: border-box;
+    color: white;
 }
 
-*{
-    font-family: "Oswald";
-    color: white;
+:root {
+    --page-bg: rgb(75, 133, 187);
+    --card-start: rgb(39, 92, 134);
+    --card-end: rgb(49, 118, 173);
+    --text-white: white;
 }
 body{
     height: 100%;
-    background-color: rgb(75, 133, 187);
+    margin: 0;
+    padding: 0;
+    background-color: var(--page-bg);
+    font-family: "Oswald";
 }
 
 .weather-info{
@@ -33,11 +38,10 @@ body{
     min-height: 600px;
     width: 30%;
     border: solid rgb(255, 255, 255);
-    /* background-color: rgb(39, 92, 134); */
-    background: linear-gradient(120deg , rgb(31, 59, 136), 
-    rgb(50, 94, 190));
+    background: linear-gradient(120deg , var(--card-start), var(--card-end));
     border-radius: 25px;
     box-shadow: 0 0 30px darkgray;
+    color: var(--text-white);
     animation: boxShadowChange 10s infinite;
 }
 
@@ -112,14 +116,14 @@ input:focus{
     margin-bottom: 20px;
     width: 80%;
     height: 30%;
-    background-color:rgb(49, 118, 173);
-
+    background-color: rgb(49, 118, 173);
     opacity: 0.5;
- 
     border-radius: 40px;
     box-shadow: 0 0px 10px rgb(0, 0, 0);
     transition: opacity 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
-    overflow-x: scroll;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 10px;
 }
 
 ::-webkit-scrollbar{
@@ -135,11 +139,14 @@ input:focus{
     flex-shrink: 0;
     margin: 10px;
     border-radius: 20px;
-    border: solid;
     width: 100px;
-    opacity: 0.5;
+    border: solid 1px rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+    opacity: 0.85;
     height: 150px;
-    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out, font-size 0.5s ease-in-out;
+    box-sizing: border-box;
+    padding: 10px;
+    transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out, background-color 0.25s ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -148,8 +155,13 @@ input:focus{
 
 .day:hover{
     opacity: 1;
-    transform: translateY(-5px);
-    font-size: 1.03rem;
+    transform: translateY(-5px) scale(1.02);
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.day img {
+    width: 70px;
+    height: 70px;
 }
 
 .weather-emoji{
@@ -166,7 +178,7 @@ input:focus{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2rem;
+    font-size: 1.5rem;
     
 }
 
